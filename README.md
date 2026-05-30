@@ -1,6 +1,6 @@
 # Lindblad Cryptography Protocol — Formal Specification
 
-**Version:** 1.0  
+**Version:** 2.0  
 **Status:** Draft — Pre-publication  
 **Authors:** Lindblad Protocol Research  
 **Target:** arXiv submission (physics.gen-ph / cs.CR)
@@ -272,19 +272,31 @@ The following remain active research questions:
 
 ## 7. Deployed Implementation
 
-### 7.1 Smart Contracts (Arbitrum Sepolia)
+### 7.1 Smart Contracts
+
+**Arbitrum One (Chain ID: 42161)**
 
 | Contract | Address |
 |---|---|
-| LindblabUSDT v3 | `0x2A30BFb63c65EC7BAE244B4f49e05904483C877c` |
-| LindblabUSDC v3 | `0x20f409b8B8b8E517b24ab00C3A0027e286f392fB` |
-| PYCO ERC-20 | `0xABFc535DD9A85Bd6BA61192210623fEfADD912A1` |
+| LindblabUSDT v3 | `0x7e0f53f04dDc48dFdc96DFE93606a73f0dCF56A3` |
+| LindblabUSDC v3 | `0x1AfC80b30cBBE50E8aBb4585f53ff530c305d416` |
+| PYCO ERC-20 | `0x16a69CcdA3865a23537d46055dC6564A2813C36B` |
+
+**Polygon (Chain ID: 137)**
+
+| Contract | Address |
+|---|---|
+| LindblabUSDT v3 | `0x5E850eFe2843AD0699D6153F03859a5C761ae125` |
+| LindblabUSDC v3 | `0xcd690504a5ca7fe44CF1aF3A692fF2FFd828EFcC` |
+
+> PYCO is deployed on Arbitrum One only and serves as the native token of the entire network regardless of which chain a bridge deposit originates from.
 
 ### 7.2 Live Network
 
 - **VPS:** `https://lindblad.io`
 - **Block Explorer:** `https://lindblad.io/scan`
-- **Active nodes:** SRAM PUF-based hardware running LCP L1-L4
+- **Active nodes:** 3 SRAM PUF-based hardware nodes running LCP L1-L4
+- **Networks:** Arbitrum One + Polygon mainnet
 
 ---
 
