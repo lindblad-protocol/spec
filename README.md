@@ -2,14 +2,32 @@
 
 **Version:** 2.0  
 **Status:** Draft — Pre-publication  
-**Authors:** Lindblad Protocol Research  
-**Target:** arXiv submission (physics.gen-ph / cs.CR)
+**Author:** Jorge Pumar (Independent Researcher — Physicist, Geophysics)  
+**Target:** arXiv submission (cs.CR / cs.DC)
+
+---
+
+## Research Paper
+
+The complete research paper — *"Lindblad Protocol: Dissipative Consensus for Physical-Layer Distributed Ledgers"* — is permanently archived and citable via Zenodo:
+
+**DOI:** [10.5281/zenodo.20601591](https://doi.org/10.5281/zenodo.20601591)
+
+A copy of the paper is available in this repository under [`/paper`](./paper).
+
+### Citation
+
+```
+Pumar, J. (2026). Lindblad Protocol: Dissipative Consensus for
+Physical-Layer Distributed Ledgers. Zenodo.
+https://doi.org/10.5281/zenodo.20601591
+```
 
 ---
 
 ## Abstract
 
-The Lindblad Cryptography Protocol (LCP) is a four-layer hardware protocol that simultaneously proves the identity, temporal origin, and physical location of every cryptographic signing event. Unlike software-based consensus mechanisms, LCP anchors network state in thermodynamic law via the Lindblad master equation from open quantum systems theory — making state reversal physically impossible rather than computationally expensive.
+The Lindblad Cryptography Protocol (LCP) is a four-layer hardware protocol that simultaneously proves the identity, temporal origin, and physical location of every cryptographic signing event. LCP anchors network state in thermodynamic law via the Lindblad master equation from open quantum systems theory, making state reversal a violation of the second law of thermodynamics.
 
 We introduce the Spectral Ledger: a continuous accumulated signal governed by the Lindblad master equation, where each state transition is irreversible by the second law of thermodynamics. We further introduce Physical Coherence Verification (PCV-4), a four-dimensional verification layer that proves WHAT was signed, WHEN it was signed, WHERE it was signed, and WHO signed it — simultaneously, without a trusted third party.
 
@@ -17,9 +35,9 @@ We introduce the Spectral Ledger: a continuous accumulated signal governed by th
 
 ## 1. Introduction
 
-Classical blockchain consensus relies on computational difficulty (Proof of Work) or economic stake (Proof of Stake) to make reversion costly. Both approaches are fundamentally software constraints — they can be overcome with sufficient resources or through protocol-level attacks.
+Classical blockchain consensus relies on computational difficulty (Proof of Work) or economic stake (Proof of Stake) to make reversion costly. Both approaches operate as software constraints, and can be overcome with sufficient resources or through protocol-level attacks.
 
-LCP takes a different approach: **thermodynamic irreversibility as immutability**. The dissipative evolution of the Lindblad master equation is not a software rule — it is a physical law. No computational resource can reverse a thermodynamically dissipated state.
+LCP is grounded in a different principle: **thermodynamic irreversibility as immutability**. The dissipative evolution of the Lindblad master equation is a physical law rather than a software rule. No computational resource can reverse a thermodynamically dissipated state.
 
 ### 1.1 Motivation
 
@@ -27,7 +45,7 @@ Three observations motivate LCP:
 
 1. **Identity is physical.** SRAM Physically Unclonable Functions (PUFs) generate device fingerprints from manufacturing-time quantum variations in transistor threshold voltages. These cannot be cloned, transferred, or simulated.
 
-2. **Time is entropic.** Chua's chaotic circuit generates entropy from physical thermal noise. The resulting state trajectories are physically unrepeatable — providing a hardware-anchored timestamp that cannot be forged.
+2. **Time is entropic.** Chua's chaotic circuit generates entropy from physical thermal noise. The resulting state trajectories are physically unrepeatable, providing a hardware-anchored timestamp.
 
 3. **Consensus is dissipative.** The Lindblad master equation governs the irreversible evolution of open quantum systems. Applied to network state, dissipation operators encode the arrow of time directly into the ledger.
 
@@ -79,7 +97,7 @@ Each node state is represented as a tensor product:
 dS(ρ)/dt ≥ 0
 ```
 
-**Corollary (Ledger Immutability):** A recorded state transition in the Spectral Ledger cannot be reversed without violating the second law of thermodynamics. The computational cost of reversal is not polynomial or exponential — it is physically infinite.
+**Corollary (Ledger Immutability):** A recorded state transition in the Spectral Ledger cannot be reversed without violating the second law of thermodynamics. The computational cost of reversal is physically infinite under this model.
 
 ### 2.4 Spectral Gap and Confirmation Time
 
@@ -135,7 +153,7 @@ Verify(pk, m, σ) → {true, false}
 
 ### Layer 3 — Temporal Entropy (Chua HSC)
 
-**Physical basis:** Chua's circuit is a nonlinear electronic oscillator that exhibits deterministic chaos. Its state trajectory is sensitive to initial conditions and thermal noise — making each microsecond physically unique.
+**Physical basis:** Chua's circuit is a nonlinear electronic oscillator that exhibits deterministic chaos. Its state trajectory is sensitive to initial conditions and thermal noise, making each microsecond physically unique.
 
 **The Chua system (continuous form):**
 ```
@@ -188,7 +206,7 @@ PCV-4: (Identity, Time, Spectral, Entropy) → Coherence Score ∈ [0, 1]
 | Identity (I) | SRAM PUF | The signing device is the registered hardware |
 | Time (T) | Chua HSC | The signature occurred at the claimed time |
 | Spectral (S) | Device fingerprint | The spectral characteristics match registration |
-| Entropy (E) | Thermal noise quality | The entropy source is physical, not simulated |
+| Entropy (E) | Thermal noise quality | The entropy source is physical |
 
 ### 4.2 Coherence Score
 
@@ -218,7 +236,7 @@ The Spectral Ledger is a continuous accumulated signal Φ(t) defined by:
 Φ(t) = ∫₀ᵗ L(ρ(τ)) dτ
 ```
 
-Unlike discrete block-based ledgers, Φ(t) is a continuous function of network state. Each epoch samples Φ at discrete intervals for practical implementation, but the underlying mathematical object is continuous.
+The ledger is a continuous function of network state. Each epoch samples Φ at discrete intervals for practical implementation, while the underlying mathematical object remains continuous.
 
 ### 5.2 Token Transport
 
@@ -256,7 +274,7 @@ The short ID (LDXXXXXXX) provides 16^7 = 268,435,456 unique addresses. The full 
 | Sybil attack | Each node requires unique PUF + certification |
 | 51% attack | No majority voting; consensus via Lindblad steady state |
 | Fork attack | Thermodynamic irreversibility prevents state reversion |
-| Simulation | Physical entropy (thermal noise) cannot be software-simulated |
+| Simulation | Physical entropy (thermal noise) requires physical hardware |
 
 ### 6.2 Open Problems
 
@@ -312,11 +330,11 @@ The following remain active research questions:
 
 ## 9. License
 
-This specification is released under **Creative Commons Attribution 4.0 International (CC BY 4.0)**.
+This specification is released under **Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)**, consistent with the archived research paper.
 
-The mathematical framework described herein is open for academic use, citation, and implementation. The software implementation of LCP (firmware, fullnode, attestation system) is proprietary and not covered by this license.
+The mathematical framework described herein is open for academic use and citation. The software implementation of LCP (firmware, fullnode, attestation system) is proprietary and not covered by this license.
 
 ---
 
-*Lindblad Protocol Research — 2026*  
+*Lindblad Protocol — 2026*  
 *The hardware decides. The physics guarantees. The chain records.*
